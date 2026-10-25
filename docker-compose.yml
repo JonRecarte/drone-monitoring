@@ -6,7 +6,7 @@
 # Credenciales fijas de laboratorio. Se pueden sustituir con variables de entorno
 # (GRAFANA_ADMIN_PASSWORD, INFLUX_TOKEN, ...), pero solo surten efecto en el primer
 # arranque: InfluxDB y Grafana las guardan al crear sus volúmenes.
-name: drones-monitoring
+name: drone-monitoring
 
 services:
   influxdb:

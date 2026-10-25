@@ -1,6 +1,6 @@
 """Pruebas del ingestor. No necesitan InfluxDB ni el bridge.
 
-    python3 -m unittest discover -s tests -v      (desde monitoring/)
+    python3 -m unittest discover -s tests -v      (desde drone-monitoring/)
 """
 from __future__ import annotations
 

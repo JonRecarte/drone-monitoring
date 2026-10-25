@@ -1,4 +1,4 @@
-# monitoring
+# drone-monitoring
 
 Monitorización del bridge Webots ↔ Renode de
 [CF_renode_emulator](https://github.com/danielalaez/CF_renode_emulator). Guarda en
@@ -14,8 +14,8 @@ Se ejecuta en la máquina donde funciona CF_renode_emulator. Necesita Docker con
 **Una sola vez:**
 
 ```bash
-git clone <URL-del-repo> monitoring
-cd monitoring
+git clone https://github.com/JonRecarte/drone-monitoring.git
+cd drone-monitoring
 docker compose up -d
 ```
 
@@ -25,7 +25,7 @@ arrancados y se levantan solos cuando arranca Docker.
 **En cada vuelo, dos terminales:**
 
 ```bash
-# Terminal A, dentro de monitoring/: el ingestor sigue el fichero de telemetría
+# Terminal A, dentro de drone-monitoring/: el ingestor sigue el fichero de telemetría
 python3 bridge_to_influx.py --file /tmp/cf_bridge.jsonl --follow
 
 # Terminal B, dentro de CF_renode_emulator/: el vuelo de siempre, con TELEMETRY
@@ -41,7 +41,7 @@ equipo. Usuario `admin`, contraseña `admin`. El dashboard
 **Crazyflie · bridge Webots↔Renode** se abre directamente y se refresca cada 5 s.
 
 **Para parar:** `Ctrl+C` en la terminal A y `docker compose down` dentro de
-`monitoring/`. Los datos se conservan; `docker compose down -v` los borra.
+`drone-monitoring/`. Los datos se conservan; `docker compose down -v` los borra.
 
 ## Cómo funciona
 
@@ -185,7 +185,7 @@ No necesitan InfluxDB. Cubren el escapado del line protocol, el aplanado de
 campos, las sesiones y las derivadas, la lectura de líneas a medio escribir y el
 truncado del fichero. Si el log de ejemplo de CF_renode_emulator
 (`cf_bridge_smoke_jsonl_example.txt`) está en la carpeta que contiene a
-`monitoring/`, se prueba también con él; si no, esa prueba se omite.
+`drone-monitoring/`, se prueba también con él; si no, esa prueba se omite.
 
 ## Lo que la telemetría actual todavía no contiene
 
